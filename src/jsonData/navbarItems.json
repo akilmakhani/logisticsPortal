@@ -1,0 +1,27 @@
+
+[
+  {
+    "key": "1",
+    "label": "Vehicles"
+  },
+  {
+    "key": "2",
+    "label": "Customers"
+  },
+  {
+    "key": "3",
+    "label": "Reports"
+  },
+  {
+    "key": "4",
+    "label": "Dispatch"
+  },
+  {
+    "key": "5",
+    "label": "Operations"
+  },
+  {
+    "key": "6",
+    "label": "Distribution"
+  }
+]

@@ -1,0 +1,46 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  background-color: #F4F7FE; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border: 2px solid #ccc; 
+  border-radius: 5px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  overflow: hidden; 
+  margin-right: 5px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto; 
+}
+
+.title {
+  margin: 10px;
+  color: #000; 
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-container span {
+  margin-right: 20px;
+}

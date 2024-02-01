@@ -1,0 +1,25 @@
+.layout{
+  background-color:#F4F7FE;
+}
+
+.dashboard-header {
+  background-color: #F4F7FE;
+}
+
+.dashboard-menu {
+  background-color: #F4F7FE; 
+}
+
+.dashboard-content {
+  padding: 24px;
+  min-height: calc(100vh - 64px); 
+}
+
+.dashboard-menu .ant-menu-item {
+  margin-right: 25px; 
+}
+
+.dashboard-menu .ant-menu-item {
+  font-size: 15px;
+  font-weight: bold;
+}

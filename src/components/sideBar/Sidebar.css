@@ -1,0 +1,21 @@
+.sidebar-header {
+  text-align: center;
+
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  color: #1890ff; 
+  padding: 16px;
+}
+
+.ant-layout-sider-collapsed .sidebar-header h2 {
+  padding: 16px 0; 
+  font-size: 15px;
+}
+
+ .ant-menu-item {
+  font-size: 15px;
+  font-weight: bold;
+}
+
