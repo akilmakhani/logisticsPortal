@@ -3,16 +3,17 @@
 }
 
 .dashboard-header {
-  background-color: #F4F7FE;
+  background-color: #fdb018;
 }
 
 .dashboard-menu {
-  background-color: #F4F7FE; 
+  background-color: #fdb018; 
 }
 
 .dashboard-content {
   padding: 24px;
   min-height: calc(100vh - 64px); 
+  margin-top: -20px;
 }
 
 .dashboard-menu .ant-menu-item {
@@ -22,4 +23,15 @@
 .dashboard-menu .ant-menu-item {
   font-size: 15px;
   font-weight: bold;
+}
+.view-more-button-container {
+  float: right;
+  margin-right: -40px;
+}
+.ant-breadcrumb {
+  font-size: 16px; 
+}
+.bold-blue {
+  font-weight: bold;
+  color: #1890FF;
 }

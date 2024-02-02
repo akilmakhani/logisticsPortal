@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import type { GetRef, TableColumnsType, TableColumnType } from 'antd';
-import { Button, Input, Space, Table } from 'antd';
+import type {  TableColumnsType, TableColumnType } from 'antd';
+import { Button, Input, InputNumber, Space, Table } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import type { InputRef } from 'antd/lib/input';
 
@@ -170,6 +170,7 @@ const data: DataType[] = [
 
 
 const TableView: React.FC = () => {
+  const [filteredData, setFilteredData] = useState<DataType[]>(data);
 
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
@@ -185,22 +186,41 @@ const TableView: React.FC = () => {
     setSearchedColumn(dataIndex);
   };
 
-  const handleReset = (clearFilters: () => void) => {
+  const handleReset = (clearFilters: () => void,     selectedKeys: string[],
+  confirm: FilterDropdownProps['confirm'],
+  dataIndex: DataIndex,
+  ) => {
     clearFilters();
-    setSearchText('');
+  setSearchText('');
+  setSearchedColumn('');
+  setFilteredData(data);
+  confirm();
+  setSearchText('');
+  setSearchedColumn(dataIndex);
+    
   };
 
   const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<DataType> => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
       <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
-        <Input
-          ref={searchInput}
-          placeholder={`Search ${dataIndex}`}
-          value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-          onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
-          style={{ marginBottom: 8, display: 'block' }}
-        />
+        {dataIndex === 'age' ? (
+          <InputNumber
+            type="number" 
+            value={selectedKeys[0] as number | undefined}
+            onChange={(value) => setSelectedKeys(value ? [value] : [])}
+            style={{ width: 100 }}
+            onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+          />
+        ) : (
+          <Input
+            ref={searchInput}
+            placeholder={`Search ${dataIndex}`}
+            value={selectedKeys[0]}
+            onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+            onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+            style={{ width: 188, marginBottom: 8, display: 'block' }}
+          />
+        )}
         <Space>
           <Button
             type="primary"
@@ -212,7 +232,7 @@ const TableView: React.FC = () => {
             Search
           </Button>
           <Button
-            onClick={() => clearFilters && handleReset(clearFilters)}
+            onClick={() => clearFilters && handleReset(clearFilters,selectedKeys as string[], confirm, dataIndex)}
             size="small"
             style={{ width: 90 }}
           >
@@ -246,9 +266,9 @@ const TableView: React.FC = () => {
     ),
     onFilter: (value, record) =>
       record[dataIndex]
-        .toString()
-        .toLowerCase()
-        .includes((value as string).toLowerCase()),
+        ?.toString()
+        ?.toLowerCase()
+        ?.includes((value as string)),
     onFilterDropdownOpenChange: (visible) => {
       if (visible) {
         setTimeout(() => searchInput.current?.select(), 100);
@@ -267,8 +287,7 @@ text      ) : (
       dataIndex: 'name',
       key: 'name',
       width: '30%',
-      sorter: (a: { age: number }, b: { age: number }) => a.age - b.age,
-
+      sorter: (a, b) => a.name.length - b.name.length,
       ...getColumnSearchProps('name'),
     },
     {
@@ -276,6 +295,7 @@ text      ) : (
       dataIndex: 'age',
       key: 'age',
       width: '20%',
+      sorter: (a: { age: number }, b: { age: number }) => a.age - b.age,
       ...getColumnSearchProps('age'),
     },
     {
@@ -292,14 +312,24 @@ text      ) : (
       key: 'occupation',
       width: '20%',
       sorter: (a, b) => a.occupation.length - b.occupation.length,
-
-      ...getColumnSearchProps('age'),
+      ...getColumnSearchProps('occupation'),
 
     },
     
   ];
 
-  return <Table columns={columns} dataSource={data} size="middle" />;
+  return (
+  <Table
+   columns={columns}
+   dataSource={filteredData} 
+   size="middle"
+   footer={() => (
+    <div style={{ textAlign: 'right', paddingRight: 20 }}>
+      <b>Total Data:</b> {filteredData.length}
+    </div>
+    )}
+  />
+  );
 };
 
 export default TableView;

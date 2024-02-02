@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Breadcrumb, Menu, Table, Row, Col } from 'antd';
+import { Layout, Breadcrumb, Menu,  Row, Col, Button } from 'antd';
 import navbarItems from '../../jsonData/navbarItems.json';
 // import tableData from '../../jsonData/tableData.json';
 import './DashBoard.css';   
@@ -89,14 +89,18 @@ const Dashboard: React.FC<DashboardProps> = ({ breadcrumbItems }) => {
             <Menu.Item key={item.key}>{item.label}</Menu.Item>
           ))}
         </Menu>
+        <div className="view-more-button-container">
+          <Button type="primary">View More</Button>
+        </div>
       </Layout.Header>
+
       <Layout.Content className="dashboard-content">
         <Breadcrumb style={{ margin: '16px 0' }}>
           {breadcrumbItems.map((item, index) => (
-            <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>
+            <Breadcrumb.Item key={index} className={index === breadcrumbItems.length - 1 ? 'bold-blue' : ''}>{item}</Breadcrumb.Item>
           ))}
         </Breadcrumb>
-       
+        
         <Row gutter={16}>
           <Col span={12}>
             {/* <Table 
