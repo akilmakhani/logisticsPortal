@@ -33,7 +33,7 @@
 
 .title {
   margin: 10px;
-  color: #000; 
+  color: #fdb018; 
 }
 
 .avatar-container {
@@ -43,4 +43,8 @@
 
 .avatar-container span {
   margin-right: 20px;
+}
+.ant-dropdown-link{
+  font-weight: bold;
+  color: #fdb018;
 }

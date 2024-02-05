@@ -2,26 +2,31 @@
   {
     "key": "1",
     "icon": "PieChartOutlined",
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "url": "dashboard"
   },
   {
     "key": "2",
     "icon": "DesktopOutlined",
-    "title": "Shipments"
+    "title": "Shipments",
+    "url": "shipments"
   },
   {
     "key": "3",
     "icon": "PieChartOutlined",
-    "title": "Inventory"
+    "title": "Inventory",
+    "url": "inventory"
   },
   {
     "key": "4",
     "icon": "DesktopOutlined",
-    "title": "Warehousing"
+    "title": "Warehousing",
+    "url": "warehousing"
   },
   {
     "key": "5",
     "icon": "PieChartOutlined",
-    "title": "Suppliers"
+    "title": "Suppliers",
+    "url": "suppliers"
   }
 ]

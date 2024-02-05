@@ -2,12 +2,17 @@
   background-color:#F4F7FE;
 }
 
+.ant-layout{
+  background-color:#F4F7FE;
+}
+
 .dashboard-header {
-  background-color: #fdb018;
+  background-color: #F4F7FE;
 }
 
 .dashboard-menu {
-  background-color: #fdb018; 
+  background-color: #F4F7FE; 
+  
 }
 
 .dashboard-content {
@@ -24,9 +29,10 @@
   font-size: 15px;
   font-weight: bold;
 }
-.view-more-button-container {
+.dashboard-content .view-more-button-container {
   float: right;
-  margin-right: -40px;
+  margin-top: 10px;
+
 }
 .ant-breadcrumb {
   font-size: 16px; 
