@@ -16,7 +16,7 @@ const ViewMore: React.FC<ViewMoreProps> = ({ breadcrumbItems }) => {
       if (index === 0) {
         return (
           <Breadcrumb.Item key={index}>
-            <Link to="/">Home</Link>
+            <Link to="/">{item}</Link>
           </Breadcrumb.Item>
         );
       } else {

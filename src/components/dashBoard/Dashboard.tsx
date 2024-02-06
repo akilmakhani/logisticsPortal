@@ -7,17 +7,21 @@ import ChildChart from "../charts/ChildChart";
 import ParentChart from "../charts/ParentChart";
 import { QuarterlyData, MonthlyData } from "../types";
 import TableView from "../TableView";
+import navbarItems from '../../jsonData/navbarItems.json';
 import { Link } from "react-router-dom";
 
 interface DashboardProps {
   breadcrumbItems: string[];
+  defaultSelectedKey: string;
+
 }
 
 
       
       
 
-const Dashboard: React.FC<DashboardProps> = ({ breadcrumbItems }) => {
+const Dashboard: React.FC<DashboardProps> = ({ breadcrumbItems, defaultSelectedKey}) => {
+
 
   const quarterlyData: QuarterlyData[] = [
     { quarter: '2011 Q1', productA: 100, productB: 200, productC: 300 },
@@ -92,7 +96,7 @@ const Dashboard: React.FC<DashboardProps> = ({ breadcrumbItems }) => {
       if (index === 0) {
         return (
           <Breadcrumb.Item key={index}>
-            <Link to="/">Home</Link>
+            <Link to="/">{navbarItems[parseInt(defaultSelectedKey)-1].label}</Link>
           </Breadcrumb.Item>
         );
       } else {

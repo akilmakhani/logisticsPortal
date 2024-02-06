@@ -35,7 +35,6 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onCollapse,updateBreadcrum
 
   const handleMenuItemClick = (key: string) => {
     const breadcrumbItems = ['Home', menuItems.find(item => item.key === key)?.title ?? 'Dashboard'];
-    console.log("breadcrumbItems",breadcrumbItems)
     updateBreadcrumb(breadcrumbItems); 
   };
 

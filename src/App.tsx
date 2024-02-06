@@ -55,12 +55,12 @@ const MainComponent: React.FC = () => {
           {/* <Dashboard /> */}
       <Routes>
       <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route path="/dashboard" element={<Dashboard breadcrumbItems={breadcrumbItems} />} />
-        <Route path="/shipments" element={<Dashboard breadcrumbItems={breadcrumbItems}/>} />
-        <Route path="/inventory" element={<Dashboard breadcrumbItems={breadcrumbItems}/>} />
-        <Route path="/warehousing" element={<Dashboard breadcrumbItems={breadcrumbItems}/>} />
-        <Route path="/suppliers" element={<Dashboard breadcrumbItems={breadcrumbItems}/>} />
-        <Route path="/dashboard/viewmore" element={<ViewMore breadcrumbItems={['Home','Dashboard', 'ViewMore']} />} />
+        <Route path="/dashboard" element={<Dashboard breadcrumbItems={breadcrumbItems} defaultSelectedKey={defaultSelectedKey}  />} />
+        <Route path="/shipments" element={<Dashboard breadcrumbItems={breadcrumbItems} defaultSelectedKey={defaultSelectedKey}/>} />
+        <Route path="/inventory" element={<Dashboard breadcrumbItems={breadcrumbItems} defaultSelectedKey={defaultSelectedKey}/>} />
+        <Route path="/warehousing" element={<Dashboard breadcrumbItems={breadcrumbItems} defaultSelectedKey={defaultSelectedKey}/>} />
+        <Route path="/suppliers" element={<Dashboard breadcrumbItems={breadcrumbItems} defaultSelectedKey={defaultSelectedKey} />} />
+        <Route path="/dashboard/viewmore" element={<ViewMore breadcrumbItems={[navbarItems[parseInt(defaultSelectedKey)-1].label,'Dashboard', 'ViewMore']} />} />
       </Routes>
         </Layout>
       </Layout>    
